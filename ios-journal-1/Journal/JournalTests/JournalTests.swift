@@ -9,8 +9,11 @@ import XCTest
 @testable import Journal
 
 class JournalTests: XCTestCase {
-   
+    
     func testIfNewEntryWithALargeTitleThenThrows() {
+        
+        EntryModelController.shared = EntryModelController(storage: FileSystemStorageMock())
+        
         let titleWithMoreThan200Characters = "ubq uiiuq biuqbiu bqiub iqub iuqb iuqiu bqiu biu iuqbqiub qiub iqu iqubiuq bqiu bqiu bqiub qiub qiub qiub qiu qbiub qiub qiub qiub qiub qiu biubq iub qiub qiu bqiu iuqb iuqb q ubq uiiuq biuqbiu bqiub iqub iuqb iuqiu bqiu biu iuqbqiub qiub iqu iqubiuq bqiu bqiu bqiub qiub qiub qiub qiu qbiub qiub qiub qiub qiub qiu biubq iub qiub qiu bqiu iuqb iuqb ubq uiiuq biuqbiu bqiub iqub iuqb iuqiu bqiu biu iuqbqiub qiub iqu iqubiuq bqiu bqiu bqiub qiub qiub qiub qiu qbiub qiub qiub qiub qiub qiu biubq iub qiub qiu bqiu iuqb iuqb ubq uiiuq biuqbiu bqiub iqub iuqb iuqiu bqiu biu iuqbqiub qiub iqu iqubiuq bqiu bqiu bqiub qiub qiub qiub qiu qbiub qiub qiub qiub qiub qiu biubq iub qiub qiu bqiu iuqb iuqb ubq uiiuq biuqbiu bqiub iqub iuqb iuqiu bqiu biu iuqbqiub qiub iqu iqubiuq bqiu bqiu bqiub qiub qiub qiub qiu qbiub qiub qiub qiub qiub qiu biubq iub qiub qiu bqiu iuqb iuqb"
         
         let body = "iuwenfiu iu iuwehfuwhe iwefbiuwe huihwejhr ilwenr weruiewgr iwe  ;weih iuwh iuweh iwh w. wenrtiwebfij w WE hiuwe iweb iwef kq ejdn iqe fwejn iweerbngij wiruh giuerh iuewhf iuwe iwuehfiuwefjwngioejtgoirwmfoirejgiowrjf oweiugh owir gjhoirwje reworgrwfnwrijvnwe iofn gwruheir hiwur oiqewjf owiejf weoh woei howeirrh owerh oweirjr oeiwhwoeiweoihroiwehroewhr owie"
@@ -20,6 +23,8 @@ class JournalTests: XCTestCase {
     }
     
     func testIfNewEntryWithEmptyTitleThenThrows() {
+        EntryModelController.shared = EntryModelController(storage: FileSystemStorageMock())
+        
         let body = "iuwenfiu iu iuwehfuwhe iwefbiuwe huihwejhr ilwenr weruiewgr iwe  ;weih iuwh iuweh iwh w. wenrtiwebfij w WE hiuwe iweb iwef kq ejdn iqe fwejn iweerbngij wiruh giuerh iuewhf iuwe iwuehfiuwefjwngioejtgoirwmfoirejgiowrjf oweiugh owir gjhoirwje reworgrwfnwrijvnwe iofn gwruheir hiwur oiqewjf owiejf weoh woei howeirrh owerh oweirjr oeiwhwoeiweoihroiwehroewhr owie"
         
         XCTAssertThrowsError(try EntryModelController.shared.createEntry(with: "", body: body))
@@ -27,6 +32,8 @@ class JournalTests: XCTestCase {
     }
     
     func testIfNewEntryWithEmptyBodyThenThrows() {
+        EntryModelController.shared = EntryModelController(storage: FileSystemStorageMock())
+        
         let title = "Title"
         let body = ""
         
@@ -34,6 +41,8 @@ class JournalTests: XCTestCase {
     }
     
     func testIfNewValidEntryThenIncreaseCount() {
+        EntryModelController.shared = EntryModelController(storage: FileSystemStorageMock())
+        
         let initialCount = EntryModelController.shared.countEntries()
         
         XCTAssertNoThrow(try EntryModelController.shared.createEntry(with: "New Entry", body: "New Entry"))
@@ -44,6 +53,8 @@ class JournalTests: XCTestCase {
     }
     
     func testIfRemoveInvalidEntryThenThrows() {
+        EntryModelController.shared = EntryModelController(storage: FileSystemStorageMock())
+        
         let entry = Entry(title: "not a valid entry", body: "not a valid entry")
         
         XCTAssertThrowsError(try EntryModelController.shared.deleteEntry(entry: entry))

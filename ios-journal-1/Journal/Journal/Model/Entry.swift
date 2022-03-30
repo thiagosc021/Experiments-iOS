@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Entry: Equatable {
+class Entry: Equatable, Codable {
     
     static func == (lhs: Entry, rhs: Entry) -> Bool {
         lhs.title == rhs.title && lhs.body == rhs.body && lhs.timeStamp == lhs.timeStamp
