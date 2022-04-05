@@ -12,7 +12,9 @@ class EntryDetailViewController: UIViewController {
     @IBOutlet private weak var titleTextField: UITextField!
     @IBOutlet weak var bodyTextView: UITextView!
     
-    var modelController = EntryModelController.shared
+    var modelController = EntryModelController(journalModelController: JournalModelController.shared)
+    
+    var journal: Journal?
     
     var entry: Entry? {
         didSet {
@@ -38,16 +40,17 @@ class EntryDetailViewController: UIViewController {
     @IBAction func saveEntry(_ sender: Any) {
         
         guard let title = titleTextField.text,
-              let body = bodyTextView.text else {
+              let body = bodyTextView.text,
+              let journal = journal else {
             //TODO: display an alert with the error message
             return
         }
         
         do {            
             if let entry = entry {
-                //TODO: remove old entry from the array
+                try modelController.updateEntry(entry: entry, journal: journal)
             } else {
-                try modelController.createEntry(with: title, body: body)
+                try modelController.createEntry(with: title, body: body, journal: journal)
             }
             
         } catch let error {
@@ -62,7 +65,7 @@ class EntryDetailViewController: UIViewController {
     }
     
     @IBAction func clearForm() {
-        titleTextField.text = "Enter title here..."
-        bodyTextView.text = "Write entry here..."
+        titleTextField.text = ""
+        bodyTextView.text = ""
     }
 }

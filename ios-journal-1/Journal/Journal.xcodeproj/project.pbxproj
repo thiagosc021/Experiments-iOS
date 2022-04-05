@@ -9,9 +9,13 @@
 /* Begin PBXBuildFile section */
 		786554CA27F3E0CC00895121 /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 786554C927F3E0CC00895121 /* Entry.swift */; };
 		786554CC27F3E27D00895121 /* EntryModelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 786554CB27F3E27D00895121 /* EntryModelController.swift */; };
-		786554D727F3E53800895121 /* JournalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 786554D627F3E53800895121 /* JournalTests.swift */; };
+		786554D727F3E53800895121 /* JournalModelControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 786554D627F3E53800895121 /* JournalModelControllerTests.swift */; };
 		786554DF27F3ED6100895121 /* EntryListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 786554DE27F3ED6100895121 /* EntryListTableViewController.swift */; };
 		786554E127F3F25400895121 /* EntryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 786554E027F3F25400895121 /* EntryDetailViewController.swift */; };
+		786554E327F68AF600895121 /* Journal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 786554E227F68AF600895121 /* Journal.swift */; };
+		786554E527F68C3300895121 /* JournalModelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 786554E427F68C3300895121 /* JournalModelController.swift */; };
+		786554E727F68CFB00895121 /* EntryModelControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 786554E627F68CFB00895121 /* EntryModelControllerTests.swift */; };
+		786554E927FBD9A300895121 /* JournalListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 786554E827FBD9A300895121 /* JournalListViewController.swift */; };
 		78F7184627F51E3300D3A72C /* FileSystemStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F7184527F51E3300D3A72C /* FileSystemStorage.swift */; };
 		7EDA120F259D233600BBD350 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EDA120E259D233600BBD350 /* AppDelegate.swift */; };
 		7EDA1211259D233600BBD350 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EDA1210259D233600BBD350 /* SceneDelegate.swift */; };
@@ -34,9 +38,13 @@
 		786554C927F3E0CC00895121 /* Entry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
 		786554CB27F3E27D00895121 /* EntryModelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryModelController.swift; sourceTree = "<group>"; };
 		786554D427F3E53800895121 /* JournalTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JournalTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		786554D627F3E53800895121 /* JournalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalTests.swift; sourceTree = "<group>"; };
+		786554D627F3E53800895121 /* JournalModelControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalModelControllerTests.swift; sourceTree = "<group>"; };
 		786554DE27F3ED6100895121 /* EntryListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryListTableViewController.swift; sourceTree = "<group>"; };
 		786554E027F3F25400895121 /* EntryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryDetailViewController.swift; sourceTree = "<group>"; };
+		786554E227F68AF600895121 /* Journal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Journal.swift; sourceTree = "<group>"; };
+		786554E427F68C3300895121 /* JournalModelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalModelController.swift; sourceTree = "<group>"; };
+		786554E627F68CFB00895121 /* EntryModelControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryModelControllerTests.swift; sourceTree = "<group>"; };
+		786554E827FBD9A300895121 /* JournalListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalListViewController.swift; sourceTree = "<group>"; };
 		78F7184527F51E3300D3A72C /* FileSystemStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileSystemStorage.swift; sourceTree = "<group>"; };
 		7EDA120B259D233600BBD350 /* Journal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Journal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EDA120E259D233600BBD350 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -70,7 +78,9 @@
 			children = (
 				78F7184527F51E3300D3A72C /* FileSystemStorage.swift */,
 				786554C927F3E0CC00895121 /* Entry.swift */,
+				786554E227F68AF600895121 /* Journal.swift */,
 				786554CB27F3E27D00895121 /* EntryModelController.swift */,
+				786554E427F68C3300895121 /* JournalModelController.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -78,7 +88,8 @@
 		786554D527F3E53800895121 /* JournalTests */ = {
 			isa = PBXGroup;
 			children = (
-				786554D627F3E53800895121 /* JournalTests.swift */,
+				786554D627F3E53800895121 /* JournalModelControllerTests.swift */,
+				786554E627F68CFB00895121 /* EntryModelControllerTests.swift */,
 			);
 			path = JournalTests;
 			sourceTree = "<group>";
@@ -88,6 +99,7 @@
 			children = (
 				786554DE27F3ED6100895121 /* EntryListTableViewController.swift */,
 				786554E027F3F25400895121 /* EntryDetailViewController.swift */,
+				786554E827FBD9A300895121 /* JournalListViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -241,7 +253,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				786554D727F3E53800895121 /* JournalTests.swift in Sources */,
+				786554E727F68CFB00895121 /* EntryModelControllerTests.swift in Sources */,
+				786554D727F3E53800895121 /* JournalModelControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,7 +265,10 @@
 				786554CC27F3E27D00895121 /* EntryModelController.swift in Sources */,
 				786554DF27F3ED6100895121 /* EntryListTableViewController.swift in Sources */,
 				786554CA27F3E0CC00895121 /* Entry.swift in Sources */,
+				786554E527F68C3300895121 /* JournalModelController.swift in Sources */,
+				786554E327F68AF600895121 /* Journal.swift in Sources */,
 				7EDA120F259D233600BBD350 /* AppDelegate.swift in Sources */,
+				786554E927FBD9A300895121 /* JournalListViewController.swift in Sources */,
 				786554E127F3F25400895121 /* EntryDetailViewController.swift in Sources */,
 				7EDA1211259D233600BBD350 /* SceneDelegate.swift in Sources */,
 				78F7184627F51E3300D3A72C /* FileSystemStorage.swift in Sources */,

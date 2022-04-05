@@ -7,12 +7,7 @@
 
 import Foundation
 
-class Entry: Equatable, Codable {
-    
-    static func == (lhs: Entry, rhs: Entry) -> Bool {
-        lhs.title == rhs.title && lhs.body == rhs.body && lhs.timeStamp == lhs.timeStamp
-    }
-    
+class Entry: Codable {
     var title: String
     var body: String
     var timeStamp: Date
@@ -21,5 +16,11 @@ class Entry: Equatable, Codable {
         self.title = title
         self.body = body
         self.timeStamp = timeStamp
+    }
+}
+
+extension Entry: Equatable {
+    static func == (lhs: Entry, rhs: Entry) -> Bool {
+        lhs.title == rhs.title && lhs.body == rhs.body && lhs.timeStamp == lhs.timeStamp
     }
 }

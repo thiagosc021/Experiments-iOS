@@ -9,11 +9,16 @@ import UIKit
 
 class EntryListTableViewController: UITableViewController {
     
-    var modelController = EntryModelController.shared
+    
+    var modelController = EntryModelController(journalModelController: JournalModelController.shared)
 
+    var journal: Journal? {
+        didSet {
+            
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        _ = modelController.listEntries()
         tableView.reloadData()
     }
     
@@ -25,14 +30,16 @@ class EntryListTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return modelController.countEntries()
+        return journal?.entries.count ?? 0
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "entryCell", for: indexPath)
 
-        let entries = modelController.listEntries()
+        guard let entries = journal?.entries else {
+            return UITableViewCell()
+        }
         
         let entry = entries[indexPath.row]
         
@@ -42,11 +49,22 @@ class EntryListTableViewController: UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let destination = segue.destination as? EntryDetailViewController,
-        let index = self.tableView.indexPathForSelectedRow else {
+        
+        guard let destination = segue.destination as? EntryDetailViewController else {
             return
         }
         
-        destination.entry =  modelController.listEntries()[index.row]
+        if segue.identifier == "addEntry" {
+            destination.journal = journal
+        } else {
+            guard let index = self.tableView.indexPathForSelectedRow,
+                  let entries = journal?.entries else {
+                return
+            }
+            
+            destination.entry =  entries[index.row]
+            destination.journal = journal
+        }
+        
     }
 }
