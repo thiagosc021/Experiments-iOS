@@ -9,10 +9,12 @@ import Foundation
 
 class Product: Codable, Equatable {
     var name: String
+    var quantity: Int
     var isPurchased = false
     
-    init(name: String) {
+    init(name: String, quantity: Int = 1) {
         self.name = name
+        self.quantity = quantity
     }
     
     static func == (lhs: Product, rhs: Product) -> Bool {
