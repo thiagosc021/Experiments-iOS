@@ -16,6 +16,8 @@
 		78655539280509CD00895121 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78655538280509CD00895121 /* Product.swift */; };
 		7865553B28050A6500895121 /* ProductModelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7865553A28050A6500895121 /* ProductModelController.swift */; };
 		7865553D2805112700895121 /* FileSystemStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7865553C2805112700895121 /* FileSystemStorage.swift */; };
+		7865554028065B8E00895121 /* ProductListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7865553F28065B8E00895121 /* ProductListTableViewController.swift */; };
+		7865554228065CB200895121 /* ProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7865554128065CB200895121 /* ProductTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +43,8 @@
 		78655538280509CD00895121 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		7865553A28050A6500895121 /* ProductModelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductModelController.swift; sourceTree = "<group>"; };
 		7865553C2805112700895121 /* FileSystemStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileSystemStorage.swift; sourceTree = "<group>"; };
+		7865553F28065B8E00895121 /* ProductListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListTableViewController.swift; sourceTree = "<group>"; };
+		7865554128065CB200895121 /* ProductTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +86,7 @@
 		786555042805084E00895121 /* ShoppingList */ = {
 			isa = PBXGroup;
 			children = (
+				7865553E28065B6F00895121 /* ViewControllers */,
 				786555372805099700895121 /* Views */,
 				786555362805098900895121 /* Controllers */,
 				786555352805097E00895121 /* Models */,
@@ -123,8 +128,17 @@
 			children = (
 				7865550B2805084E00895121 /* Main.storyboard */,
 				786555102805085100895121 /* LaunchScreen.storyboard */,
+				7865554128065CB200895121 /* ProductTableViewCell.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		7865553E28065B6F00895121 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				7865553F28065B8E00895121 /* ProductListTableViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -230,9 +244,11 @@
 			files = (
 				78655539280509CD00895121 /* Product.swift in Sources */,
 				7865553B28050A6500895121 /* ProductModelController.swift in Sources */,
+				7865554228065CB200895121 /* ProductTableViewCell.swift in Sources */,
 				7865553D2805112700895121 /* FileSystemStorage.swift in Sources */,
 				786555062805084E00895121 /* AppDelegate.swift in Sources */,
 				786555082805084E00895121 /* SceneDelegate.swift in Sources */,
+				7865554028065B8E00895121 /* ProductListTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

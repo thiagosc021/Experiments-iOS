@@ -41,4 +41,33 @@ class ProductModelControllerTests: XCTestCase {
         let purchasedProduct = productModelController.products[0]
         XCTAssertTrue(purchasedProduct.isPurchased)
     }
+    
+    func testProductPurchasedCount() throws {
+        let prod1 = Product(name: "Laranjas", quantity: 10)
+        let prod2 = Product(name: "Bananas", quantity: 3)
+        let prod3 = Product(name: "Papel toalha")
+        
+        try productModelController.addProduct(product: prod1)
+        try productModelController.addProduct(product: prod2)
+        try productModelController.addProduct(product: prod3)
+        
+        try productModelController.markAsPurschased(product: prod1)
+        try productModelController.markAsPurschased(product: prod2)
+        
+        XCTAssertEqual(productModelController.count(purchased: true), 2)
+    }
+    
+    func testProductFetchPurchasedProducts() throws {
+        let prod1 = Product(name: "Laranjas", quantity: 10)
+        let prod2 = Product(name: "Bananas", quantity: 3)
+        let prod3 = Product(name: "Papel toalha")
+        
+        try productModelController.addProduct(product: prod1)
+        try productModelController.addProduct(product: prod2)
+        try productModelController.addProduct(product: prod3)
+        
+        try productModelController.markAsPurschased(product: prod1)
+        
+        XCTAssertEqual(prod1, productModelController.fetchProducts(puschased: true).first)
+    }
 }

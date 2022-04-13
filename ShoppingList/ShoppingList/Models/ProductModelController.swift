@@ -50,4 +50,12 @@ class ProductModelController {
         purchasedProduct.isPurchased.toggle()
         try fileSystem.saveToPersistentStorage(content: product)
     }
+    
+    func count(purchased: Bool) -> Int {
+        return products.filter({ $0.isPurchased == purchased}).count
+    }
+    
+    func fetchProducts(puschased: Bool) -> [Product] {
+        return products.filter( { $0.isPurchased == puschased })
+    }
 }
