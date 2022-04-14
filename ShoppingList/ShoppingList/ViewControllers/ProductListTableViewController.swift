@@ -13,26 +13,22 @@ class ProductListTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let prod1 = Product(name: "Laranjas", quantity: 10)
-        let prod2 = Product(name: "Bananas", quantity: 3)
-        let prod3 = Product(name: "Papel toalha")
-
+        self.title = "Shopping List"
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         do {
-            try modelController.addProduct(product: prod1)
-            try modelController.addProduct(product: prod2)
-            try modelController.addProduct(product: prod3)
-            try modelController.markAsPurschased(product: prod2)
             try modelController.fetchProductsIfNeeded()
+            tableView.reloadData()
         } catch let error {
             print(error)
         }
-        
     }
 
     @IBAction func addProductTapped(_ sender: Any) {
         
-        let alert = UIAlertController(title: "Add Product", message: "Adds as new product to the list", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Add Product", message: "Adds new products to the list", preferredStyle: .alert)
 
         alert.addTextField { (textField) in
             textField.placeholder = "Product name"
@@ -90,51 +86,49 @@ class ProductListTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
         return true
     }
 
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)           
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+            
+            let products = modelController.fetchProducts(puschased: indexPath.section != 0 )
+            let product = products[indexPath.row]
+            
+            do {
+                try modelController.deleteProduct(product: product)
+                tableView.deleteRows(at: [indexPath], with: .fade)
+            } catch let error {
+                print(error)
+            }
+            
+        }
     }
    
 
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        guard segue.identifier == "productDetailSegue" ,
+            let indexPath = self.tableView.indexPathForSelectedRow,
+        let destinationVC = segue.destination as? ProductDetailViewController else {
+            return
+        }
+        
+        let products = modelController.fetchProducts(puschased: indexPath.section != 0 )
+        let product = products[indexPath.row]
+        
+        
+        destinationVC.model = product
     }
-    */
 
 }
 
 extension ProductListTableViewController: ProductTableViewCellDelegate {
     func markAsPurchased(for product: Product) {
         do {
-            try modelController.markAsPurschased(product: product)
+            try modelController.togglePurchased(product: product)
             tableView.reloadData()
         } catch let error {
             print(error)

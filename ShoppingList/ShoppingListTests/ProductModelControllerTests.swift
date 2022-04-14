@@ -36,7 +36,7 @@ class ProductModelControllerTests: XCTestCase {
         let product = Product(name: "Laranja")
         try productModelController.addProduct(product: product)
         
-        XCTAssertNoThrow(try productModelController.markAsPurschased(product: product))
+        XCTAssertNoThrow(try productModelController.togglePurchased(product: product))
                 
         let purchasedProduct = productModelController.products[0]
         XCTAssertTrue(purchasedProduct.isPurchased)
@@ -51,8 +51,8 @@ class ProductModelControllerTests: XCTestCase {
         try productModelController.addProduct(product: prod2)
         try productModelController.addProduct(product: prod3)
         
-        try productModelController.markAsPurschased(product: prod1)
-        try productModelController.markAsPurschased(product: prod2)
+        try productModelController.togglePurchased(product: prod1)
+        try productModelController.togglePurchased(product: prod2)
         
         XCTAssertEqual(productModelController.count(purchased: true), 2)
     }
@@ -66,7 +66,7 @@ class ProductModelControllerTests: XCTestCase {
         try productModelController.addProduct(product: prod2)
         try productModelController.addProduct(product: prod3)
         
-        try productModelController.markAsPurschased(product: prod1)
+        try productModelController.togglePurchased(product: prod1)
         
         XCTAssertEqual(prod1, productModelController.fetchProducts(puschased: true).first)
     }

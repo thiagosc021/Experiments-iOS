@@ -37,18 +37,28 @@ class ProductModelController {
         try fileSystem.saveToPersistentStorage(content: products)
     }
     
+    func updateProduct(product: Product, name: String, quantity: Int) throws {
+        guard let currentProduct = products.first(where: { $0 == product }) else {
+            throw ProductModelError.ProductNotFound
+        }
+        
+        currentProduct.name = name
+        currentProduct.quantity = quantity
+        try fileSystem.saveToPersistentStorage(content: products)
+    }
+    
     func deleteProduct(product: Product) throws {
         products.removeAll(where: {$0 == product})
         try fileSystem.saveToPersistentStorage(content: products)
     }
     
-    func markAsPurschased(product: Product) throws {
+    func togglePurchased(product: Product) throws {
         guard let purchasedProduct = products.first(where: { $0 == product }) else {
             throw ProductModelError.ProductNotFound
         }
         
         purchasedProduct.isPurchased.toggle()
-        try fileSystem.saveToPersistentStorage(content: product)
+        try fileSystem.saveToPersistentStorage(content: products)
     }
     
     func count(purchased: Bool) -> Int {
