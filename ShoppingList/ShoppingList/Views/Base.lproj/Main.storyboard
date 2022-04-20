@@ -170,14 +170,15 @@
                             <constraint firstItem="wa3-Zz-sC2" firstAttribute="top" secondItem="JHW-ds-jja" secondAttribute="bottom" constant="20" id="36i-M0-sU4"/>
                             <constraint firstItem="vhb-zG-iwB" firstAttribute="leading" secondItem="6Sx-pT-vuT" secondAttribute="leading" constant="20" id="3Ei-Ny-66w"/>
                             <constraint firstItem="6Sx-pT-vuT" firstAttribute="trailing" secondItem="JHW-ds-jja" secondAttribute="trailing" constant="20" id="621-cd-3bf"/>
-                            <constraint firstItem="6Sx-pT-vuT" firstAttribute="bottom" secondItem="mxM-Vq-ma6" secondAttribute="bottom" constant="385" id="8Fo-5M-JLF"/>
+                            <constraint firstItem="6Sx-pT-vuT" firstAttribute="bottom" secondItem="mxM-Vq-ma6" secondAttribute="bottom" priority="250" constant="385" id="8Fo-5M-JLF"/>
                             <constraint firstItem="6Sx-pT-vuT" firstAttribute="trailing" secondItem="mxM-Vq-ma6" secondAttribute="trailing" constant="50" id="axf-RX-rbS"/>
                             <constraint firstItem="mxM-Vq-ma6" firstAttribute="leading" secondItem="6Sx-pT-vuT" secondAttribute="leading" constant="50" id="bM6-jY-KCu"/>
-                            <constraint firstItem="mxM-Vq-ma6" firstAttribute="top" secondItem="wa3-Zz-sC2" secondAttribute="bottom" priority="250" constant="66" id="bgr-sg-6hw"/>
+                            <constraint firstItem="mxM-Vq-ma6" firstAttribute="top" secondItem="wa3-Zz-sC2" secondAttribute="bottom" constant="66" id="bgr-sg-6hw"/>
                             <constraint firstItem="JHW-ds-jja" firstAttribute="top" secondItem="vhb-zG-iwB" secondAttribute="bottom" constant="20" id="dP5-2u-09Q"/>
                             <constraint firstItem="6Sx-pT-vuT" firstAttribute="trailing" secondItem="vhb-zG-iwB" secondAttribute="trailing" constant="20" id="fd1-lk-fbx"/>
                             <constraint firstItem="wa3-Zz-sC2" firstAttribute="leading" secondItem="6Sx-pT-vuT" secondAttribute="leading" constant="20" id="irp-Ci-Zv3"/>
                             <constraint firstItem="6Sx-pT-vuT" firstAttribute="trailing" secondItem="wa3-Zz-sC2" secondAttribute="trailing" constant="20" id="sIw-mP-bdf"/>
+                            <constraint firstItem="6Sx-pT-vuT" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="mxM-Vq-ma6" secondAttribute="bottom" constant="50" id="u6s-IL-xEB"/>
                             <constraint firstItem="JHW-ds-jja" firstAttribute="leading" secondItem="6Sx-pT-vuT" secondAttribute="leading" constant="20" id="uxF-bo-hfj"/>
                             <constraint firstItem="vhb-zG-iwB" firstAttribute="top" secondItem="6Sx-pT-vuT" secondAttribute="top" priority="250" constant="70" id="yQj-Pt-U6U"/>
                         </constraints>
